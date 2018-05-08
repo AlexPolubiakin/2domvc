@@ -3,12 +3,12 @@
 define('DB_HOST','localhost');
 define('DB_USER','root');
 define('DB_PSW','');
-define('DB_NAME','game');
+define('DB_NAME','2domvc');
 
 // urlroot
-define('URLROOT','http://localhost/game');
+define('URLROOT','http://localhost/2domvc');
 // sitename
-define('SITENAME', 'TheGame');
+define('SITENAME', '2DoList');
 // approot
 define('APPROOT', dirname(dirname(__FILE__)));
 // база данных
