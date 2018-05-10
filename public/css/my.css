@@ -1,6 +1,9 @@
 * {
 	padding: 0px;
 	margin: 0px;
+	font-family: 'Racing Sans One', cursive;
+	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
 }
 
 .item-list-prop{

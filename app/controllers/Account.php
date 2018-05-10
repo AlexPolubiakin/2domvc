@@ -147,7 +147,7 @@ class Account extends Controller{
     public function createUserSession($user){
         $_SESSION['user_id'] = $user->id;
         $_SESSION['user_login'] = $user->login; 
-        redirect('index');
+        redirect('lists');
       }
 
 

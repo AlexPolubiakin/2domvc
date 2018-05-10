@@ -4,7 +4,11 @@
         <div class="card card-body bg-light mt-5">
             <div class="card">
                 <div class="card-header">
-                    <h3>Список желаний</h3>
+                    <h3>ИМЯ Список желаний</h3>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Имя автора</h5>
+                    <p class="card-text">Описание wishlist'a</p>
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
@@ -37,9 +41,9 @@
                             <div class="col">
                             <input type="submit" class="btn btn-primary" value="Add item">
                             </div>
+                            <a href="<?php echo URLROOT?>/lists" class="btn btn-primary">Назад</a>
                         </div>
                     </form>
-                    
                 </div>
             </div>
 
