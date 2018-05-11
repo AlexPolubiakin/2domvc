@@ -24,7 +24,7 @@
                                 <input type="submit" class="btn btn-primary btn-block" value="Регистрация">
                             </div>
                             <div class="col">
-                                <a href="<?php echo URLROOT; ?>/account/login" class="btn btn-light btn-block">Есть аккаунт? Войти</a>
+                                <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-light btn-block">Есть аккаунт? Войти</a>
                             </div>
                         </div>
                     </form>

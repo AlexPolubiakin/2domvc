@@ -25,7 +25,7 @@
                   <input type="submit" class="btn btn-primary btn-block" value="Вход">
                 </div>
                 <div class="col">
-                  <a href="<?php echo URLROOT; ?>/account/register" class="btn btn-light btn-block">Нет аккаунта? Зарегестрироваться!</a>
+                  <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-light btn-block">Нет аккаунта? Зарегестрироваться!</a>
                 </div>
               </div>
 

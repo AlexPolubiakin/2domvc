@@ -1,5 +1,5 @@
 <?Php 
-class Users {
+class User {
     protected $db;
 
     public function __construct(){

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -23,13 +23,13 @@
             if(isset($_SESSION['user_login'])){ 
                ?>
             <div class="float-right">    
-			          <a href="<?php echo URLROOT;?>/account" class="btn btn-outline-light"><?php echo $_SESSION['user_login']; ?></a>
-                <a href="<?php echo URLROOT;?>/account/logout" class="btn btn-outline-light">Выход</a>
+			          <a href="<?php echo URLROOT;?>/users" class="btn btn-outline-light"><?php echo $_SESSION['user_login']; ?></a>
+                <a href="<?php echo URLROOT;?>/users/logout" class="btn btn-outline-light">Выход</a>
             </div>
             <?php } else { ?>
               <div class="float-right">
-                <a href="<?php echo URLROOT;?>/account/login" class="btn btn-outline-light">Вход</a>
-                <a href="<?php echo URLROOT;?>/account/register" class="btn btn-outline-light">Регистрация</a>
+                <a href="<?php echo URLROOT;?>/users/login" class="btn btn-outline-light">Вход</a>
+                <a href="<?php echo URLROOT;?>/users/register" class="btn btn-outline-light">Регистрация</a>
               </div>
             <?php } ?>
         </div>

@@ -1,11 +1,8 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
-
-<div class="row">
-    <div class="col-md-6 mx-auto">
+    
+<div class="col-md-6 mx-auto mb-3">
         
-        
-        <div class="card text-center">
+        <div class="card text-center mt-2">
             <div class="card-header">
                 <a class="navbar-brand text-dark float-left" href="#">Мои списки:</a>
                 <ul class="nav nav-pills card-header-pills float-right">
@@ -16,46 +13,27 @@
             </div>
         </div>
 
-        
+
+        <?php foreach($data['lists'] as $list) : ?>
+        <div class="row">
         <div class="card card-body bg-light mt-3">
             <div class="card">
                 <div class="card-header">
-                    <h5>Название wish list'а</h5>
+                    <h5><?php echo $list->list_name; ?></h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Имя автора</h5>
-                    <p class="card-text">Краткое описание</p>
-                    <a href="<?php echo URLROOT?>/lists/show" class="btn btn-primary float-right">Подробнее</a>
+                    <h5 class="card-title"><?php echo $list->author_name; ?></h5>
+                    <p class="card-text"><?php echo $list->list_desc; ?></p>
+                    <a href="<?php echo URLROOT?>/lists/show/<?php echo $list->id; ?>" class="btn btn-primary float-right">Подробнее</a>
                 </div>
             </div>
-        </div>
-
-                <div class="card card-body bg-light mt-3">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Нзавание wish list</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Краткое описание</p>
-                            <a href="#" class="btn btn-primary float-right">Подробнее</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card card-body bg-light mt-3">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5>Нзавание wish list</h5>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">Краткое описание</p>
-                            <a href="#" class="btn btn-primary float-right">Подробнее</a>
-                        </div>
-                    </div>
-                </div>
+        </div> 
+    </div>
+        <?php endforeach; ?>
+               
 
   
-    </div>
+  
 </div>
 
 

@@ -1,7 +1,7 @@
 <?php 
-class Account extends Controller{
+class Users extends Controller{
     public function __construct(){
-        $this->accountModel = $this->model('Users');    
+        $this->userModel = $this->model('User');    
     }
 
     public function index(){
@@ -28,7 +28,7 @@ class Account extends Controller{
             $data['login_err'] = 'Пожалуйста введите логин.';
         } else {
             // проверка на уникальность
-            if($this->accountModel->checkLogin($data['login'])){
+            if($this->userModel->checkLogin($data['login'])){
                 $data['login_err'] = 'Этот логин уже занят.';
             }
         }
@@ -54,15 +54,15 @@ class Account extends Controller{
         if(empty($data['login_err']) and empty($data['password_err']) and empty($data['password_conf_err'])){
             $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
             
-            if($this->accountModel->register($data)){
+            if($this->userModel->register($data)){
                 flash('register_success', 'Вы зарегистрированны и можете войти.');
-                redirect('account/login');
+                redirect('users/login');
             } else {
                 die('по какой то причине все сломалось и не работает :(');
             }
         } else {
 
-            $this->view('account/register',$data);
+            $this->view('users/register',$data);
         }
         } else {
             $data = [
@@ -73,14 +73,14 @@ class Account extends Controller{
                 'password_err' => '',
                 'password_conf_err' => ''
             ];
-            $this->view('account/register',$data);
+            $this->view('users/register',$data);
         }
         
     }
 
     public function login(){
         if($this->isLoggedIn()){
-            redirect('village');
+            redirect('lists');
           }
           
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -97,7 +97,7 @@ class Account extends Controller{
                 $data['login_err'] = 'Пожалуйста введите логин.';
             }
             
-            if($this->accountModel->checkLogin($data['login'])){
+            if($this->userModel->checkLogin($data['login'])){
                 //юзер найден
             } else {
                 //ошибка такого юзера не зарегистрированно
@@ -106,16 +106,16 @@ class Account extends Controller{
 
             if(empty($data['login_err']) and empty($data['password_err'])){
             
-                $loggedInUser = $this->accountModel->login($data['login'],$data['password']);
+                $loggedInUser = $this->userModel->login($data['login'],$data['password']);
                 
                 if($loggedInUser){
                     $this->createUserSession($loggedInUser);
                 } else {
                     $data['password_err'] = 'Пароль неверный';
-                    $this->view('account/login', $data);
+                    $this->view('users/login', $data);
                 }
             } else {
-                $this->view('account/login', $data);
+                $this->view('users/login', $data);
             }
         } else {
             $data = [
@@ -125,7 +125,7 @@ class Account extends Controller{
                 'password_err' => ''
             ];
             
-            $this->view('account/login', $data);
+            $this->view('users/login', $data);
         }
     }
 
@@ -133,7 +133,7 @@ class Account extends Controller{
         unset($_SESSION['user_id']);
         unset($_SESSION['user_login']);
         session_destroy();
-        redirect('account/login');
+        redirect('users/login');
     }
 
     public function isLoggedIn(){

@@ -1,16 +1,13 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-
 <div class="row">
 <div class="col-md-6 mx-auto">
       <div class="card card-body bg-light mt-5">
           <h3>Ваши списки:</h3>
           <div class="card card-body">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio<span class="float-right"><a href="#" class="btn btn-primary btn-sm m-1">Подробнее</a><a href= "" class="btn btn-primary btn-sm float-right m-1">Удалить</a></span></li>
-            <li class="list-group-item">Cras justo odio<span class="float-right"><a href="#" class="btn btn-primary btn-sm m-1">Подробнее</a><a href= "" class="btn btn-primary btn-sm float-right m-1">Удалить</a></span></li>
-            <li class="list-group-item">Cras justo odio<span class="float-right"><a href="#" class="btn btn-primary btn-sm m-1">Подробнее</a><a href= "" class="btn btn-primary btn-sm float-right m-1">Удалить</a></span></li>
-            <li class="list-group-item">Cras justo odio<span class="float-right"><a href="#" class="btn btn-primary btn-sm m-1">Подробнее</a><a href= "" class="btn btn-primary btn-sm float-right m-1">Удалить</a></span></li>
-            <li class="list-group-item">Cras justo odio<span class="float-right"><a href="#" class="btn btn-primary btn-sm m-1">Подробнее</a><a href= "" class="btn btn-primary btn-sm float-right m-1">Удалить</a></span></li>
+            <?php foreach($data['myLists'] as $list) : ?>
+            <li class="list-group-item"><?php echo $list->list_name;?><span class="float-right"><a href="<?php echo URLROOT;?>/lists/show/<?php echo $list->id ?>" class="btn btn-primary btn-sm m-1">Подробнее</a><a href= "<?php echo URLROOT;?>/lists/del/<?php echo $list->id ?>" class="btn btn-primary btn-sm float-right m-1">Удалить</a></span></li>
+            <?php endforeach; ?>
             </ul>
             </div>
       </div>
@@ -18,7 +15,7 @@
 
     <div class="col-md-4 mx-auto">
       <div class="card card-body bg-light mt-5">
-        <?php flash('register_success'); ?>
+        <?php flash('post_success'); ?>
           <h3>Добавить новый список:</h3>
             <form method="post">
               

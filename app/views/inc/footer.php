@@ -1,6 +1,6 @@
-<div class="navbar navbar-expand-lg navbar-light bg-primary fixed-bottom">         
-  <p class="text-right font-weight-light">version 1.0</p>
-</div> <!-- Footer  -->
+<div class="fixed-bottom">    
+  <p class="text-right font-weight-light mr-3">version 1.0.0</p>
+</div> 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
