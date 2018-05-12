@@ -1,11 +1,11 @@
 2do list/planner 
 много вещей нужно доделать , но в целом рабочая версия
 ниже приведен код таблиц 
-все настройки делаются в config файле
+все настройки делаются в config файле и htaccess файле
 
 
 a lot of things need to upgrade but it's working.
-you can setup the app in the config file
+you can setup the app in the config file and htaccess files
 code to create sql tables;
 
 CREATE TABLE `items` (
