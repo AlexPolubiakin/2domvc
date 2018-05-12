@@ -44,6 +44,10 @@ class Lists extends Controller {
                 } else {
                     die('что то пошло не так! :(');
                 }
+            } else {
+                $myLists = $this->wlistModel->getMyLists($_SESSION['user_id']);
+                $data['myLists'] = $myLists;
+                $this->view('lists/add', $data);
             }
         } else {
             $myLists = $this->wlistModel->getMyLists($_SESSION['user_id']);
@@ -67,7 +71,6 @@ class Lists extends Controller {
     }
 
     public function show($id){
-        
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -88,13 +91,21 @@ class Lists extends Controller {
                 }
             }
         }
-        
-        $list = $this->wlistModel->showList($id);
-        $data = [
-            'list' => $list,
-            'item' => ''
-        ];
-        $this->view('lists/show', $data);
+
+            $list = $this->wlistModel->showList($id);
+            $data = [
+                'list' => $list,
+                'item' => ''
+            ];
+            $this->view('lists/show', $data);
+    } 
+
+    public function delitem($id){
+        if($this->wlistModel->deleteItem($id)){
+            redirect('lists/show/');
+        } else {
+            die('Все пропало шеф!');
+        }
     }
 
     

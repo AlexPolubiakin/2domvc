@@ -6,3 +6,11 @@
 .item-list-prop{
 	font-size:1.5em;
 }
+.crossed{
+	text-decoration:line-through;
+}
+
+.notcrossed{
+	text-decoration:none;
+}
+
