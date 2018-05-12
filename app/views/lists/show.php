@@ -1,5 +1,4 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
-<?php print_r($data['list']); ?>
 <div class="row">
     <div class="col-md-6 mx-auto">
         <div class="card card-body bg-light mt-5">
@@ -9,21 +8,29 @@
                 </div>
                 
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $data['list'][0]->author_name; ?></h5>
-                    <p class="card-text"><?php echo $data['list'][0]->list_desc; ?></p>
+                    <h5 class="card-title"><?php if(!empty($data['list'])){ echo $data['list'][0]->author_name;} ?></h5>
+                    <p class="card-text"><?php if(!empty($data['list'])){echo $data['list'][0]->list_desc;} ?></p>
                 </div>
                 <div class="card-body">
                     
+                    <?php if(!empty($data['list'])) : ?>
                     <?php foreach($data['list'] as $list) : ?>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><?php echo $list->item; ?>
-                            <span class="float-right item-list-prop">
-                            <a href="<?php echo URLROOT;?>/lists/checkitem/<?php echo $list->itemId ?>"><i class="far fa-check-square"></i></a>
-                            <a href="<?php echo URLROOT;?>/lists/delitem/<?php echo $list->itemId ?>" ><i class="far fa-times-circle"></i></a>
+                    <li class="list-group-item">
+                            <a href="<?php echo URLROOT;?>/lists/checkitem/<?php echo $list->list_id ?>/<?php echo $list->itemId ?>"><i class="far fa-check-square"></i></a>
+                            <span class='item<?php echo ($list->flag) ? ' crossed': ''?>'>
+                                <?php echo $list->item; ?>
                             </span>
-                        </li>
+                            <span class="float-right item-list-prop">
+                            <a href="<?php echo URLROOT;?>/lists/delitem/<?php echo $list->list_id ?>/<?php echo $list->itemId ?>" ><i class="far fa-times-circle"></i></a>
+                            </span>
+                            </li>
                     </ul>
                     <?php endforeach; ?>
+                    <?php else : ?>
+                        <p>Добавьте новые пункты в Ваш список!</p>
+                    <?php endif; ?>
+
 
                     <form method="post">
                         <div class="form-row mt-3">

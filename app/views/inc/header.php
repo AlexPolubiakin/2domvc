@@ -23,7 +23,7 @@
             if(isset($_SESSION['user_login'])){ 
                ?>
             <div class="float-right">    
-			          <a href="<?php echo URLROOT;?>/users" class="btn btn-outline-light"><?php echo $_SESSION['user_login']; ?></a>
+			          <a href="<?php echo URLROOT;?>/lists/add" class="btn btn-outline-light"><?php echo $_SESSION['user_login']; ?></a>
                 <a href="<?php echo URLROOT;?>/users/logout" class="btn btn-outline-light">Выход</a>
             </div>
             <?php } else { ?>

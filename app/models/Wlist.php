@@ -76,5 +76,25 @@ class Wlist {
         }
    }
 
+   public function checkItem($id){
+       $this->db->query("SELECT items.flag FROM items WHERE items.id='$id'");
+       $row = $this->db->single();
+       if($row->flag){
+        $this->db->query("UPDATE items SET flag=0 WHERE id='$id'");
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        } 
+    } else {
+        $this->db->query("UPDATE items SET flag=1 WHERE id='$id'");
+        if($this->db->execute()){
+            return true;
+        } else {
+            return false;
+        } 
+    }
+   }
+
   
 }

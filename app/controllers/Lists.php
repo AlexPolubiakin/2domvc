@@ -70,13 +70,13 @@ class Lists extends Controller {
          }
     }
 
-    public function show($id){
+    public function show($id1){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $data = [
                 'item' => trim($_POST['item']),
-                'list_id' => trim($id),
+                'list_id' => trim($id1),
                 'item_err' => ''
             ];
             if(empty($data['item'])){
@@ -85,14 +85,14 @@ class Lists extends Controller {
             if(empty($data['item_err'])){
                 if($this->wlistModel->addItem($data)){
                     flash('post_success', 'Пункт добавлен');
-                    redirect('lists/show/'.$id);
+                    redirect('lists/show/'.$id1);
                 } else {
                     die('что то пошло не так! :(');
                 }
             }
         }
 
-            $list = $this->wlistModel->showList($id);
+            $list = $this->wlistModel->showList($id1);
             $data = [
                 'list' => $list,
                 'item' => ''
@@ -100,10 +100,19 @@ class Lists extends Controller {
             $this->view('lists/show', $data);
     } 
 
-    public function delitem($id){
-        if($this->wlistModel->deleteItem($id)){
-            redirect('lists/show/');
+    public function delitem($id1,$id2){
+        if($this->wlistModel->deleteItem($id2)){
+            redirect('lists/show/' . $id1);
         } else {
+            die('Все пропало шеф!');
+        }
+    }
+
+    public function checkItem($id1,$id2){
+        if($this->wlistModel->checkItem($id2)){
+            redirect('lists/show/' . $id1);
+        } else {
+            
             die('Все пропало шеф!');
         }
     }
